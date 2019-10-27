@@ -14,17 +14,17 @@ const fruits = [
     },
     {
         id: 'f1',
-        name: 'בננה',
+        name: 'בננות',
         img: banana
     },
     {
         id: 'f2',
-        name: 'דובדבן',
+        name: 'דובדבנים',
         img: cherry
     },
     {
         id: 'f3',
-        name: 'זית',
+        name: 'זיתים',
         img: olive
     },
     {
@@ -34,12 +34,12 @@ const fruits = [
     },
     {
         id: 'f5',
-        name: 'תפוז',
+        name: 'תפוזים',
         img: orange
     },
     {
         id: 'f6',
-        name: 'תפוח',
+        name: 'תפוחים',
         img: apple
     }
 ];

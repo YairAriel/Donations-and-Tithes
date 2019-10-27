@@ -9,37 +9,37 @@ import pepper from '../static/images/vegetables/pepper.jpg';
 const vegetables = [
     {
         id: 'v0',
-        name: 'בטטה',
+        name: 'בטטות',
         img: sweetPotato
     },
     {
         id: 'v1',
-        name: 'בצל',
+        name: 'בצלים',
         img: onion
     },
     {
         id: 'v2',
-        name: 'גזר',
+        name: 'גזרים',
         img: carrot
     },
     {
         id: 'v3',
-        name: 'חסה',
+        name: 'חסות',
         img: lettuce
     },
     {
         id: 'v4',
-        name: 'מלפפון',
+        name: 'מלפפונים',
         img: cucumber
     },
     {
         id: 'v5',
-        name: 'עגבניה',
+        name: 'עגבניות',
         img: tomato
     },
     {
         id: 'v6',
-        name: 'פלפל',
+        name: 'פלפלים',
         img: pepper
     }
 ];
