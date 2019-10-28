@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFruits, setVegs } from '../../store/actions';
 import List from '../../components/List/List';
 import Amount from '../../components/Amount/Amount';
 import CalcBtn from '../../components/CalcBtn/CalcBtn';
@@ -19,23 +21,25 @@ const useStyles = makeStyles(theme => ({
 const FruitsAndVegs = props => {
     const classes = useStyles();
 
-    const [fruits, setFruits] = useState(false);
-    const [vegs, setVegs] = useState(false);
+    const fruits = useSelector(state => state.fruits);
+    const vegs = useSelector(state => state.vegs);
     const [selectedItem, setSelectedItem] = useState('');
 
+    const dispatch = useDispatch();
+
     const toggleFruits = () => {
-        setFruits(true);
-        setVegs(false);
+        dispatch(setFruits(true));
+        dispatch(setVegs(false));
         setSelectedItem('');
     }
 
     const toggleVegs = () => {
-        setVegs(true);
-        setFruits(false);
+        dispatch(setVegs(true));
+        dispatch(setFruits(false));
         setSelectedItem('');
     }
 
-    const isSelectedItemHandler = itemName => {
+    const selectedItemHandler = itemName => {
         setSelectedItem(itemName);
     }
 
@@ -58,7 +62,7 @@ const FruitsAndVegs = props => {
             </Box>
             <List 
                 items={fruits ? 'fruits' : vegs ? 'vegs' : null}
-                onSelectedItem={isSelectedItemHandler} resetSelected={selectedItem === ''} />
+                onSelectedItem={selectedItemHandler} resetSelected={selectedItem === ''} />
             {selectedItem !== '' ? 
                 <Box>
                     <Amount item={selectedItem} />

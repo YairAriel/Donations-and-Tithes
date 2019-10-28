@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAmountType, setAmountValue, setWeightValue } from '../../store/actions';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -67,20 +69,22 @@ const PrettoSlider = withStyles({
 const Amount = props => {
     const classes = useStyles();
 
-    const [amountType, setAmountType] = useState('amount');
-    const [amountValue, setAmountValue] = useState(10);
-    const [weightValue, setWeightValue] = useState(null);
+    const amountType = useSelector(state => state.amountType);
+    const amountValue = useSelector(state => state.amountValue);
+    const weightValue = useSelector(state => state.weightValue);
+
+    const dispatch = useDispatch();
 
     const setAmtTypeHandler = e => {
-        setAmountType(e.target.value);
+        dispatch(setAmountType(e.target.value));
     }
 
     const setAmountValueHandler = (e, value) => {
-        setAmountValue(value);
+        dispatch(setAmountValue(value));
     }
 
     const weightValueHandler = e => {
-        setWeightValue(e.target.value);
+        dispatch(setWeightValue(e.target.value));
     }
 
     return (

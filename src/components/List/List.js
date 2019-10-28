@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedItem } from '../../store/actions';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import fruits from '../../data/fruits';
@@ -17,16 +19,17 @@ const useStyles = makeStyles(theme => ({
 const List = props => {
     const classes = useStyles();
 
-    const [selected, setSelected] = useState(null);
+    const selected = useSelector(state => state.itemId);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (props.resetSelected) {
-            setSelected(null);
+            dispatch(setSelectedItem(null));
         }
-    }, [props.resetSelected]);
+    }, [props.resetSelected, dispatch]);
     
     const selectItemHandler = (itemId, itemName) => {
-        setSelected(itemId);
+        dispatch(setSelectedItem(itemId));
         props.onSelectedItem(itemName);
     }
 
@@ -47,4 +50,3 @@ const List = props => {
 }
 
 export default List;
-// 
