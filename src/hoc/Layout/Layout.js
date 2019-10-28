@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import FruitsAndVegs from '../../components/FruitsAndVegs/FruitsAndVegs';
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -57,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const StartPage = () => {
+const Layout = props => {
   const classes = useStyles();
 
   return (
@@ -77,9 +75,9 @@ const StartPage = () => {
         </Toolbar>
       </AppBar>
 
-      <FruitsAndVegs />
+      {props.children}
     </div>
   );
 }
 
-export default StartPage;
+export default Layout;

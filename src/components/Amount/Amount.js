@@ -12,7 +12,8 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
     group: {
         flexDirection: 'row',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+        marginBottom: '3vw'
     },
     label: {
         margin: '0'

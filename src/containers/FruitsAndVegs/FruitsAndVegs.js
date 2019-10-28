@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import List from '../List/List';
-import Amount from '../Amount/Amount';
-import CalcBtn from '../CalcBtn/CalcBtn';
+import List from '../../components/List/List';
+import Amount from '../../components/Amount/Amount';
+import CalcBtn from '../../components/CalcBtn/CalcBtn';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const FruitsAndVegs = () => {
+const FruitsAndVegs = props => {
     const classes = useStyles();
 
     const [fruits, setFruits] = useState(false);
@@ -39,6 +39,10 @@ const FruitsAndVegs = () => {
         setSelectedItem(itemName);
     }
 
+    const calcBtnClickedHandler = () => {
+        props.history.push('/what-to-do');
+    }
+
     return (
         <div style={{padding: '2vw'}}>
             <Typography variant="h5" component="h5" className={classes.subTitle}>
@@ -58,7 +62,7 @@ const FruitsAndVegs = () => {
             {selectedItem !== '' ? 
                 <Box>
                     <Amount item={selectedItem} />
-                    <CalcBtn />
+                    <CalcBtn clicked={calcBtnClickedHandler}/>
                 </Box> : 
             null}
         </div>
